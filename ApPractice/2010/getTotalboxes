@@ -1,0 +1,9 @@
+public int getTotalBoxes()
+{
+    int total = 0 ; 
+    for (CookieOrder i: orders)
+    {
+        total += i.getNumBoxes() ; 
+    }
+    return total ; 
+}

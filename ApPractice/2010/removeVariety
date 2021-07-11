@@ -1,0 +1,11 @@
+public int removeVariety(String cookieVar)
+{
+    int j = 0 ; 
+    for (CookieOrder i: orders)
+    {
+        if (i.getVariety().equals(cookieVar)) {
+            orders.remove(j) ; 
+        }
+        j++ ; 
+    }
+}

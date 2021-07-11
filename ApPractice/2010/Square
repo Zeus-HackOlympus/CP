@@ -1,0 +1,74 @@
+/** Crossword Labelling Rule 
+ * A square is labled with +ve number if : 
+ * the square is white and
+ * the square does not have a white square immediately above it, or it does not have a white square immediately to its left, or both. 
+ */ 
+
+// square represents single square of crossword
+
+public class Square
+{
+    // instance variables constructor and methods not shown  
+
+    public Square(boolean isBlack, int num)
+    {
+        { /* implementation not shown */ } 
+    }
+
+}
+
+
+
+public class Crossword 
+{
+    private Square[][] puzzle ; 
+
+    public Crossword(boolean[][] blackSquares)
+    {
+        /* To be implemented in part b */
+        
+        puzzle = new Square[blackSquares.length][blackSquares[0].length] ; 
+        rows = blackSquares.length ; 
+        cols = blackSquares[0].length ; 
+        int num = 1 ; 
+        for (int r=0; r<rows; r++)
+        {
+            for (int c=0; c<cols; c++)
+            {
+                if (blackSquares[r][c])  puzzle[r][c] = new Square(true,0) ; 
+                else if (toBeLabled(r,c,blackSquares)) {
+                    puzzle = new Square(false,num) ;
+                    num++ ; 
+                    }
+                else puzzle[r][c] = new Square(false,0) ; 
+                
+            }
+        }
+    }
+
+    
+    private boolean toBeLabeled(int r, int c, boolean[][] blackSquares)
+    {
+        /* to be implemented in part a */
+        int rows = puzzle.length ; 
+        int cols = puzzle[0].length ; 
+        // if square is white 
+        if (!blackSquares[r][c])
+        {
+            // if in row 0 where there is no above 
+            if (r == 0 ) return true ; 
+            
+            // column 0 where no left
+            else if (c == 0 ) return true ; 
+            
+            // if at the middle 
+            else if ((blackSquare[r-1][c]) || (blackSquare[r][c-1]) ) return true ; 
+            
+            else return false ; 
+                
+        }
+        
+    }
+}
+
+

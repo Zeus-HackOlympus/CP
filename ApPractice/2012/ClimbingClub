@@ -1,0 +1,46 @@
+public class ClimbInfo  
+{
+    public ClimbInfo(String peakName, int climbTime)    
+    {  
+        /* implementation not shown */  
+    }
+
+    public String getName()
+    {
+    
+    }
+    public int getTime()
+    {
+
+    }
+}
+
+public class ClimbingClub  
+{     
+    private List<ClimbInfo> climbList;   
+    public ClimbingClub()
+    {  
+        climbList = new ArrayList<ClimbInfo>();  
+    }      
+    public void addClimb(String peakName, int climbTime)   
+    {    
+        climbList.add(new ClimbInfo(peakName,climbTime))
+    }      
+    
+    public addClimbByalphaOrder(String peakName, int climbTime)
+    {
+        if (climbList.size()==0) climbList.add(new ClimbInfo(peakName,climbTime))  ; 
+        for (int i=0; i<climbList.size(); i++){
+            if (peakName.compareTo(climbList.get(i).getName()) >= 0 ) 
+            {
+                climbList.add(i,new ClimbInfor(peakName,climbTime)) ; 
+            }
+        }
+    }
+    public int distinctPeakNames()   
+    {  
+
+    }
+        
+    // there may be instance variables, constructors, and methods that are not shown.
+}
