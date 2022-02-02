@@ -3,6 +3,7 @@
 #train.usaco.org template generator
 
 from string import Template 
+from os import mkdir
 import sys 
 
 def get_template(task):
@@ -14,7 +15,8 @@ LANG: C++
 
 #include <bits/stdc++.h>
 
-#define FOR(n) for(int i=0; i < n; i++) 
+#define FOR(n) for (int i=0; i < n ; i++)
+#define REP(I,n,a) for(int i=I; i < n; i+=a) 
 
 using namespace std ; 
 
@@ -24,25 +26,26 @@ int main()
     cin.tie(0);
     freopen("$task_input", "r", stdin);
     freopen("$task_output", "w", stdout);
-    int a, b ; 
-    cin >> a >> b ; // take input from file 
-    cout << a+b << endl ; // print output to a fd 
+    
+    // main code : 
+
     return 0 ; 
 }
 """)
-    return t.substitute({'task':task, 'task_input':task.split('.')[0] + '.in','task_output':task.split('.')[0] + '.out'})
+    return t.substitute({'task':task, 'task_input':task+ '.in','task_output':task + '.out'})
 
 def main():
-    if (len(sys.argv) != 3 ):
-        print("usage: ./make-template.py filename task_name")
+    if (len(sys.argv) != 2 ):
+        print("usage: ./make-template.py task_name")
         exit(-1)
     
-    filename = str(sys.argv[1])
-    template = get_template(sys.argv[2])
-    with open(filename,'w+') as f :
+    taskname = sys.argv[1]
+    template = get_template(taskname)
+    mkdir(taskname)
+    with open(f"{taskname}/{taskname}.cpp",'w+') as f :
         f.write(template)
-    open(f"{filename.split('.')[0]}.out","w") 
-    open(f"{filename.split('.')[0]}.in","w") 
+    open(f"{taskname}/{taskname}.out","w") 
+    open(f"{taskname}/{taskname}.in","w") 
     print("Done!")
 
 
