@@ -3,8 +3,8 @@
 #train.usaco.org template generator
 
 from string import Template 
-from os import mkdir
-import sys 
+from os import mkdir, chmod 
+import sys, stat 
 
 def get_template(task):
     t = Template("""/*
@@ -34,6 +34,15 @@ int main()
 """)
     return t.substitute({'task':task, 'task_input':task+ '.in','task_output':task + '.out'})
 
+def get_run_template(task):
+    temp = "#!/usr/bin/env sh\n"
+    temp += "tput bold ; echo compiling\n"
+    temp += f"g++ {task}.cpp -Wall -o {task} && ./{task}\n"
+    temp += "tput bold ; echo output :\n"
+    temp += f"cat {task}.out"
+    return temp
+
+
 def main():
     if (len(sys.argv) != 2 ):
         print("usage: ./make-template.py task_name")
@@ -41,9 +50,13 @@ def main():
     
     taskname = sys.argv[1]
     template = get_template(taskname)
+    run_template = get_run_template(taskname) 
     mkdir(taskname)
     with open(f"{taskname}/{taskname}.cpp",'w+') as f :
         f.write(template)
+    with open(f"{taskname}/run","w") as f : 
+        f.write(run_template)
+    chmod(f"{taskname}/run",stat.S_IRWXU)
     open(f"{taskname}/{taskname}.out","w") 
     open(f"{taskname}/{taskname}.in","w") 
     print("Done!")

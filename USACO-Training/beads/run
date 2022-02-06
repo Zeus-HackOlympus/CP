@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+echo compiling
+g++ beads.cpp -Wall -o beads && ./beads
+echo output :
+cat beads.out
