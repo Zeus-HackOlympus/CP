@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+tput bold ; echo compiling
+g++ shell.cpp -Wall -o shell && ./shell
+echo output :
+cat shell.out

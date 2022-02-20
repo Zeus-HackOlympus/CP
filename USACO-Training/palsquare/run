@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+tput bold ; echo compiling
+g++ palsquare.cpp -Wall -o palsquare && ./palsquare
+echo output :
+cat palsquare.out

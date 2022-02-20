@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+tput bold ; echo compiling
+g++ paint.cpp -Wall -o paint && ./paint
+echo output :
+cat paint.out

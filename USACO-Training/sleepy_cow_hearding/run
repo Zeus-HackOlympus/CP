@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+tput bold ; echo compiling
+g++ sleepy_cow_hearding.cpp -Wall -o sleepy_cow_hearding && ./sleepy_cow_hearding
+echo output :
+cat sleepy_cow_hearding.out

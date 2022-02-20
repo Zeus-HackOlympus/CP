@@ -23,7 +23,7 @@ using namespace std ;
 int main()
 {
     ios::sync_with_stdio(0);
-    cin.tie(0); cout.tie(0) ; 
+    cin.tie(0);
     freopen("$task_input", "r", stdin);
     freopen("$task_output", "w", stdout);
     
@@ -35,17 +35,13 @@ int main()
     return t.substitute({'task':task, 'task_input':task+ '.in','task_output':task + '.out'})
 
 def get_run_template(task):
-    temp = f"""#!/usr/bin/env sh
-tput bold ; echo compiling
-g++ {task}.cpp -Wall -o {task} && ./{task}
-if [ $? != 0 ]; then 
-    exit 1 
-else 
-    echo output :
-    cat {task}.out
-fi 
-""" 
+    temp = "#!/usr/bin/env sh\n"
+    temp += "tput bold ; echo compiling\n"
+    temp += f"g++ {task}.cpp -Wall -o {task} && ./{task}\n"
+    temp += "echo output :\n"
+    temp += f"cat {task}.out"
     return temp
+
 
 def main():
     if (len(sys.argv) != 2 ):

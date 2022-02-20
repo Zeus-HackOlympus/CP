@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+tput bold ; echo compiling
+g++ diamond.cpp -Wall -o diamond && ./diamond
+echo output :
+cat diamond.out

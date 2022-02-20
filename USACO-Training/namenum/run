@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+tput bold ; echo compiling
+g++ namenum.cpp -Wall -o namenum && ./namenum
+if [ $? != 0 ]; then 
+    exit 1 
+else 
+    echo output :
+    cat namenum.out
+fi 

@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+tput bold ; echo compiling
+g++ pails.cpp -Wall -o pails && ./pails
+echo output :
+cat pails.out

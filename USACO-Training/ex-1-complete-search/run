@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+tput bold ; echo compiling
+g++ ex-1.cpp -Wall -o ex-1 && ./ex-1
+echo output :
+cat ex-1.out

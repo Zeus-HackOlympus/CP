@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+tput bold ; echo compiling
+g++ triangles.cpp -Wall -o triangles && ./triangles
+echo output :
+cat triangles.out
