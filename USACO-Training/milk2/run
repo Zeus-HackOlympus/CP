@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+tput bold ; echo compiling
+g++ milk2.cpp -Wall -o milk2 && ./milk2
+if [ $? != 0 ]; then 
+    exit 1 
+else 
+    echo output :
+    cat milk2.out
+fi 
