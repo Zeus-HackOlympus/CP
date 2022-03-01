@@ -47,4 +47,15 @@ for (auto i: m) {
 if (m.count("key3")) {
     cout << m["key3"] << "\n" ; // no output 
 }
+``` 
+
+### vectors (dynamic array) 
+
+#### using pairs in vectors 
+
+```cpp 
+vector<pair<int,int>> v ; 
+v.push_back(make_pair(100,200)) ; 
+// we can also sort it : 
+sort(v.begin(),v.end()) ; 
 ```

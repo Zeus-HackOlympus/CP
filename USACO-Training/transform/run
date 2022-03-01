@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+tput bold ; echo compiling
+g++ transform.cpp -Wall -o transform && ./transform
+if [ $? != 0 ]; then 
+    exit 1 
+else 
+    echo output :
+    cat transform.out
+fi 
